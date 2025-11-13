@@ -5,13 +5,19 @@ on:
     branches:
       - main
 
+# Garantir permissão de escrita para contents (criar tags)
+permissions:
+  contents: write
+
 jobs:
   tag:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout code (full history)
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Create tag
         uses: anothrNick/github-tag-action@v1
