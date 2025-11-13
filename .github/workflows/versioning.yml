@@ -2,14 +2,20 @@ name: Versioning
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   tag:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: anothrNick/github-tag-action@v1.37.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          tag_prefix: "v"
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create tag
+        uses: anothrNick/github-tag-action@v1.67.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+          DEFAULT_BUMP: patch
