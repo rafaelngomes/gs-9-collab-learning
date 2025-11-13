@@ -51,6 +51,15 @@ docker run -p 8081:8081 rafaelngomes/gs-9-collab-learning
 ```
 
 ---
+## 🌐 **Acesso Local à API**
+
+Além do Swagger, a API possui um endpoint simples para teste:
+
+👉 **http://localhost:8081/info**
+
+Esse endpoint retorna informações básicas da aplicação (tema e membros).
+
+---
 
 ## 📚 **Swagger**
 
